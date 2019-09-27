@@ -36,10 +36,10 @@ class TwelveDays {
 
     String verses(int startVerse, int endVerse) {
         StringBuilder part= new StringBuilder();
-        for (int i = startVerse ; i <=endVerse; i++) {
+        for (int i = startVerse ; i <endVerse; i++) {
             part.append(verse(i)).append("\n");
         }
-        part.setLength(part.length() - 1);
+        part.append(verse(endVerse));
         return part.toString();
     }
 
