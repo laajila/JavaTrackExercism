@@ -27,10 +27,6 @@ class RotationalCipher {
                 if (index>=0) rotString.append(Character.toUpperCase(shiftedAlphabet[index]));
                 else rotString.append(dataString[i]);
             }
-
-
-
-
         }
         return rotString.toString();
     }
