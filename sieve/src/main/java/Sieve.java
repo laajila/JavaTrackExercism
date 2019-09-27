@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Sieve {
-    int maxPrime;
+    private int maxPrime;
     private Set<Integer> notprimes= new TreeSet<>();
     Sieve(int maxPrime) {
         this.maxPrime=maxPrime;
