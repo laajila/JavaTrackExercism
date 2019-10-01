@@ -25,7 +25,7 @@ public class NucleotideCounterTest {
         ));
     }
 
-    @Ignore("Remove to run test")
+    //@Ignore("Remove to run test")
     @Test
     public void testDnaStringHasOneNucleotide() {
         NucleotideCounter nucleotideCounter = new NucleotideCounter("G");
@@ -38,7 +38,7 @@ public class NucleotideCounterTest {
         ));
     }
 
-    @Ignore("Remove to run test")
+    //@Ignore("Remove to run test")
     @Test
     public void testRepetitiveSequenceWithOnlyGuanine() {
         NucleotideCounter nucleotideCounter = new NucleotideCounter("GGGGGGG");
@@ -51,7 +51,7 @@ public class NucleotideCounterTest {
         ));
     }
 
-    @Ignore("Remove to run test")
+    //@Ignore("Remove to run test")
     @Test
     public void testDnaStringHasMultipleNucleotide() {
         NucleotideCounter nucleotideCounter
@@ -65,7 +65,7 @@ public class NucleotideCounterTest {
         ));
     }
 
-    @Ignore("Remove to run test")
+    //@Ignore("Remove to run test")
     @Test
     public void testDnaStringHasInvalidNucleotides() {
         expectedException.expect(IllegalArgumentException.class);

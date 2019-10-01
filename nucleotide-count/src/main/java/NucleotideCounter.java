@@ -1,10 +1,27 @@
-/*
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
-Since this exercise has a difficulty of > 4 it doesn't come
-with any starter implementation.
-This is so that you get to practice creating classes and methods
-which is an important part of programming in Java.
+class NucleotideCounter{
+    private char[] dna;
+    private Map<Character,Integer> countMap=new HashMap<>(){{
+        put('A', 0);
+        put('C', 0);
+        put('G', 0);
+        put('T', 0);
+    }};;
+    NucleotideCounter(String dna){
+        this.dna=dna.toCharArray();
+        for (char c:
+             this.dna) {
+            char[] nucleotide = {'A', 'C', 'G', 'T'};
+            if(Arrays.binarySearch(nucleotide,c)<0) throw new IllegalArgumentException("DNA invalid");
+            this.countMap.put(c,countMap.get(c)+1);
+        }
+    }
 
-Please remove this comment when submitting your solution.
-
-*/
+    Map<Character,Integer> nucleotideCounts(){
+        return this.countMap;
+    }
+}
