@@ -9,14 +9,14 @@ class DiamondPrinter {
 
     List<String> printToList(char a) {
         List<String> daimond = new ArrayList<>();
-        int index = Arrays.binarySearch(alphabet, a);
-        int numberSpaces = index * 2;
-        if (index == 0) return singletonList("A");
-        if (index > 0) {
-            for (int i = 0; i <= index ; i++) {
+        int letterIndex = Arrays.binarySearch(alphabet, a);
+        int numberSpaces = letterIndex * 2;
+        if (letterIndex == 0) return singletonList("A");
+        if (letterIndex > 0) {
+            for (int i = 0; i <= letterIndex ; i++) {
                 StringBuilder line = new StringBuilder();
                 for (int j = 0; j <= numberSpaces; j++) {
-                    if (i == j - index || i == index - j) line.append(alphabet[i]);
+                    if (i == j - letterIndex || i == letterIndex - j) line.append(alphabet[i]);
                     else line.append(" ");
                 }
                 daimond.add(line.toString());
