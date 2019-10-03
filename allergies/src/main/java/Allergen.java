@@ -6,7 +6,8 @@ enum Allergen {
     TOMATOES(16),
     CHOCOLATE(32),
     POLLEN(64),
-    CATS(128);
+    CATS(128),
+    NOT_DEFINED(129);
 
     private final int score;
 
@@ -17,4 +18,5 @@ enum Allergen {
     int getScore() {
         return score;
     }
+
 }
