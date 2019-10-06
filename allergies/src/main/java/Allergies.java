@@ -5,12 +5,13 @@ import java.util.List;
 class Allergies {
     List<Allergen> allergens;
     Allergen allergen;
+    private final static int IGNORED_ALLERGIES=256;
 
 
     Allergies(int score) {
         allergens = new ArrayList<>();
-        if (score>=256) {
-            score=score%(256);
+        if (score>=IGNORED_ALLERGIES) {
+            score=score%(IGNORED_ALLERGIES);
         }
         for (int i = 0; i <=7 ; i++) {
             if (score>=(int)Math.pow(2, 7-i)  ) {
@@ -23,8 +24,7 @@ class Allergies {
 
 
     boolean isAllergicTo(Allergen allergen) {
-        if (allergens.contains(allergen)) return true;
-        else return false;
+        return allergens.contains(allergen);
     }
 
     List<Allergen> getList() {
