@@ -10,51 +10,30 @@ class SpiralMatrixBuilder {
         boolean rightDown = true;
         boolean leftTop = false;
         while (counter <= size * size) {
-
+            //left
             for (int j = indexStartRightDown; j <= indexFinishRightDown; j++) {
                 matrix[indexStartRightDown][j] = counter;
                 counter++;
             }
-
+            //down
             for (int i = indexStartRightDown + 1; i <= indexFinishRightDown; i++) {
                 matrix[i][indexFinishRightDown] = counter;
                 counter++;
             }
-
-
-            for (int[] x :
-                    matrix) {
-                System.out.println(Arrays.toString(x));
-
-            }
-            System.out.println("-______________________________");
-
+            //right
             for (int j = indexFinishRightDown - 1; j >= indexStartRightDown; j--) {
                 matrix[indexFinishRightDown][j] = counter;
                 counter++;
             }
+            //up
             for (int i = indexFinishRightDown - 1; i >= indexStartRightDown + 1; i--) {
                 matrix[i][indexStartRightDown] = counter;
                 counter++;
             }
-
-
             indexFinishRightDown--;
             indexStartRightDown++;
-            for (int[] x :
-                    matrix) {
-                System.out.println(Arrays.toString(x));
-
-            }
-            System.out.println("-______________________________");
-
-
         }
-        for (int[] x :
-                matrix) {
-            System.out.println(Arrays.toString(x));
 
-        }
 
         return matrix;
     }
