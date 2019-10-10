@@ -73,7 +73,7 @@ class RomanNumeral {
             romanValue.append(RomanLetters.I.getLetter());
 
         }
-        value=value-3;
+
         this.translationToRoman = romanValue.toString();
     }
 
