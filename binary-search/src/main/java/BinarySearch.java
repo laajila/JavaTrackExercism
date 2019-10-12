@@ -8,7 +8,6 @@ class BinarySearch {
     }
 
     int indexOf(int intTobeFound) throws ValueNotFoundException {
-        int index = -1;
         int start = 0;
         int end = sortedList.size() - 1;
 
