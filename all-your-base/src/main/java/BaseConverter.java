@@ -33,7 +33,7 @@ class BaseConverter {
         if(number==0) return new int[]{0};
         if(number==1) return new int[]{1};
         sizeOfnewNumber = (int) Math.floor(Math.log(number) / Math.log(base) - 1e-10);
-        
+
 
         for (int i = sizeOfnewNumber ; i >= 0; i--) {
             newNumbers.add((int)(number/Math.pow(base,i)));
