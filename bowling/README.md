@@ -1,12 +1,12 @@
-# BowlingGame
+# Bowling
 
 Score a bowling game.
 
-BowlingGame is a game where players roll a heavy ball to knock down pins
+Bowling is a game where players roll a heavy ball to knock down pins
 arranged in a triangle. Write code to keep track of the score
 of a game of bowling.
 
-## Scoring BowlingGame
+## Scoring Bowling
 
 The game consists of 10 frames. A frame is composed of one or two ball
 throws with 10 pins standing at frame initialization. There are three
@@ -85,7 +85,7 @@ Once you get a test passing, you can enable the next one by removing the
 
 ## Source
 
-The BowlingGame Game Kata at but UncleBob [http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata)
+The Bowling Game Kata at but UncleBob [http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have

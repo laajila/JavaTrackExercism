@@ -31,7 +31,7 @@ public class BowlingTest {
         assertEquals(0, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void shouldBeAbleToScoreAGameWithNoStrikesOrSpares() {
         int[] rolls = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
@@ -40,7 +40,7 @@ public class BowlingTest {
         assertEquals(90, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void aSpareFollowedByZerosIsWorthTenPoints() {
         int[] rolls = {6, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -49,7 +49,7 @@ public class BowlingTest {
         assertEquals(10, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void pointsScoredInTheRollAfterASpareAreCountedTwice() {
         int[] rolls = {6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -58,7 +58,7 @@ public class BowlingTest {
         assertEquals(16, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void consecutiveSparesEachGetAOneRollBonus() {
         int[] rolls = {5, 5, 3, 7, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -67,7 +67,7 @@ public class BowlingTest {
         assertEquals(31, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void aSpareInTheLastFrameGetsAOneRollBonusThatIsCountedOnce() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 7};
@@ -76,7 +76,7 @@ public class BowlingTest {
         assertEquals(17, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void aStrikeEarnsTenPointsInFrameWithASingleRoll() {
         int[] rolls = {10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -85,7 +85,7 @@ public class BowlingTest {
         assertEquals(10, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void pointsScoredInTheTwoRollsAfterAStrikeAreCountedTwiceAsABonus() {
         int[] rolls = {10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -94,7 +94,7 @@ public class BowlingTest {
         assertEquals(26, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void consecutiveStrikesEachGetTheTwoRollBonus() {
         int[] rolls = {10, 10, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -103,7 +103,7 @@ public class BowlingTest {
         assertEquals(81, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void aStrikeInTheLastFrameGetsATwoRollBonusThatIsCountedOnce() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 1};
@@ -112,7 +112,7 @@ public class BowlingTest {
         assertEquals(18, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void rollingASpareWithTheTwoRollBonusDoesNotGetABonusRoll() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 3};
@@ -121,7 +121,7 @@ public class BowlingTest {
         assertEquals(20, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void strikesWithTheTwoRollBonusDoNotGetBonusRolls() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10};
@@ -130,7 +130,7 @@ public class BowlingTest {
         assertEquals(30, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void aStrikeWithTheOneRollBonusAfterASpareInTheLastFrameDoesNotGetABonus() {
         int[] rolls = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 10};
@@ -139,7 +139,7 @@ public class BowlingTest {
         assertEquals(20, game.score());
     }
 
-    //@Ignore("Remove to run test")
+    @Ignore("Remove to run test")
     @Test
     public void allStrikesIsAPerfectGame() {
         int[] rolls = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
