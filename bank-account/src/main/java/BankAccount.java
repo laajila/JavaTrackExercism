@@ -1,24 +1,25 @@
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 class BankAccount {
     AtomicInteger balance;
-    boolean open = false;
+    AtomicBoolean open;
 
     void open() {
         this.balance = new AtomicInteger(0);
-        this.open = true;
+        this.open = new AtomicBoolean(true);
     }
 
     int getBalance() throws BankAccountActionInvalidException {
-        if (open) {
+        if (open.get()) {
             return this.balance.get();
-        }else{
+        } else {
             throw new BankAccountActionInvalidException("Account closed");
         }
     }
 
     void deposit(int money) throws BankAccountActionInvalidException {
-        if (open) {
+        if (open.get()) {
             if (money < 0) throw new BankAccountActionInvalidException("Cannot deposit or withdraw negative amount");
             this.balance.getAndAdd(money);
         } else {
@@ -27,7 +28,7 @@ class BankAccount {
     }
 
     void withdraw(int money) throws BankAccountActionInvalidException {
-        if (open) {
+        if (open.get()) {
             if (money < 0) throw new BankAccountActionInvalidException("Cannot deposit or withdraw negative amount");
             if (this.balance.get() == 0)
                 throw new BankAccountActionInvalidException("Cannot withdraw money from an empty account");
@@ -41,6 +42,6 @@ class BankAccount {
     }
 
     void close() {
-        this.open = false;
+        this.open.set(false);
     }
 }
