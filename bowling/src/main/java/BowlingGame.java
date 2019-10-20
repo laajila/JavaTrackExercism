@@ -4,42 +4,78 @@ import java.util.ArrayList;
 import java.util.List;
 
 class BowlingGame {
-    private List<Integer> rolls;
-    int frame = 0;
-    int rollsCounter = 20;
+
+    List<Frame> game;
+    int frameCount = 0;
+    Frame currentFrame;
+    int roll1;
+    int ballThrow = 1;
+    int score;
+    int additionalThrow = 2;
 
 
     BowlingGame() {
-        rolls = new ArrayList<>();
+        game = new ArrayList<>();
+
     }
 
+
     void roll(int pins) {
-        if (pins > 10) throw new IllegalStateException("Pin count exceeds pins on the lane");
-        if (rolls.size() >= 20 && rolls.get(18) != 10)
+        if (pins == 10 && ballThrow == 1) {
+            currentFrame = new Frame(pins, 0);
+            game.add(currentFrame);
+            frameCount++;
+            currentFrame = null;
+        } else if (pins < 10 && ballThrow == 1) {
+            roll1 = pins;
+            ballThrow++;
+        } else if (pins < 10 && ballThrow == 2) {
+            currentFrame = new Frame(roll1, pins);
+            game.add(currentFrame);
+            frameCount++;
+            ballThrow = 1;
+            currentFrame = null;
+        }
+
+        if (additionalThrow >0  &&
+                frameCount == 10 &&
+                (game.get(9).getType().equals("strike")
+                        )) {
+            score = score + pins;
+            additionalThrow--;
+        } else if(additionalThrow >0 && frameCount == 10 && game.get(9).getType().equals("spare")){
+            score = score + pins;
+            additionalThrow=0;
+        }else if (frameCount == 10 && additionalThrow==0 ) {
             throw new IllegalStateException("Cannot roll after game is over");
-        rolls.add(pins);
+        }
+
     }
 
     int score() {
-        int score = 0;
-        int i = 0;
-        while (i < rolls.size() - 2) {
-            if (rolls.get(i) == 10) {
-                score += 10 + rolls.get(i + 1) + rolls.get(i + 2);
-                i++;
-            } else if (rolls.get(i) + rolls.get(i + 1) == 10) {
-                score += rolls.get(i) + rolls.get(i + 1) + rolls.get(i + 2);
-                i = i + 2;
-            } else {
-                score += rolls.get(i) + rolls.get(i + 1);
-                i = i + 2;
+
+        for (int i = 0; i < game.size(); i++) {
+            Frame current = game.get(i);
+            if (current.getType().equals("strike")) {
+                if (i < game.size() - 1) {
+                    score = score + 10 + game.get(i + 1).getRoll1() + game.get(i + 1).getRoll2();
+                } else {
+                    score = score + 10 + game.get(9).getLastThrow();
+                }
+            } else if (current.getType().equals("spare")) {
+                if (i < game.size() - 1) {
+                    score = score + 10 + game.get(i + 1).getRoll1() + game.get(i + 1).getRoll1();
+                } else {
+                    score = score + 10 + game.get(9).getLastThrow();
+                }
+
+            } else if (current.getType().equals("open")) {
+                score = score + current.getRoll1() + current.getRoll2();
             }
         }
 
-        if (rolls.size() == 20) score += rolls.get(rolls.size() - 2) + rolls.get(rolls.size() - 1);
-
         return score;
+
+
     }
-
-
 }
