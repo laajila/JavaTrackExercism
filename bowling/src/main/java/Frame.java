@@ -1,9 +1,12 @@
+import java.util.List;
+
 class Frame {
     private int roll1 = 0;
     private int  roll2 = 0;
     private int lastThrow=0;
     private String type;
     private int score;
+
 
     Frame(int roll1, int roll2) {
         if (roll1 > 10 && roll2 > 10) throw new IllegalStateException("Pin count exceeds pins on the lane");

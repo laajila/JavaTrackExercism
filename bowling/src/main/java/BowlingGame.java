@@ -12,15 +12,18 @@ class BowlingGame {
     int ballThrow = 1;
     int score;
     int additionalThrow = 2;
+    List<Integer> rolls;
 
 
     BowlingGame() {
         game = new ArrayList<>();
+        rolls=new ArrayList<>();
 
     }
 
 
     void roll(int pins) {
+        rolls.add(pins);
         if (pins == 10 && ballThrow == 1) {
             currentFrame = new Frame(pins, 0);
             game.add(currentFrame);
@@ -58,13 +61,13 @@ class BowlingGame {
             Frame current = game.get(i);
             if (current.getType().equals("strike")) {
                 if (i < game.size() - 1) {
-                    score = score + 10 + game.get(i + 1).getRoll1() + game.get(i + 1).getRoll2();
+                    score = score + 10 + rolls.get(i + 1) + rolls.get(i + 2);
                 } else {
                     score = score + 10 + game.get(9).getLastThrow();
                 }
             } else if (current.getType().equals("spare")) {
                 if (i < game.size() - 1) {
-                    score = score + 10 + game.get(i + 1).getRoll1() + game.get(i + 1).getRoll1();
+                    score = score + 10 + game.get(i + 1).getRoll1();
                 } else {
                     score = score + 10 + game.get(9).getLastThrow();
                 }
