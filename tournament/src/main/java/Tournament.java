@@ -94,15 +94,11 @@ class Tournament {
         Set<Map.Entry<String, Integer[]>> entries = scoreTable.entrySet();
         List<Map.Entry<String, Integer[]>> listOfEntries = new ArrayList<Map.Entry<String, Integer[]>>(entries);
         Collections.sort(listOfEntries, valueComparator);
-        LinkedHashMap<String, Integer[]> sortedByValue = new LinkedHashMap<String, Integer[]>(listOfEntries.size());
 
-        // copying entries from List to Map
-        for(Map.Entry<String, Integer[]> entry : listOfEntries){
-            sortedByValue.put(entry.getKey(), entry.getValue());
-        }
-
-        sortedByValue.forEach(
-                (k, v) -> {
+        listOfEntries.forEach(
+                (entry) -> {
+                    Integer[] v=entry.getValue();
+                    String k=entry.getKey();
                     table.append(k);
                     for (int i = 0; i < 31 - k.length(); i++) {
                         table.append(" ");
